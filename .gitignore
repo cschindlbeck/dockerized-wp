@@ -1,0 +1,16 @@
+# Exclude system files and directories
+.DS_Store
+Thumbs.db
+
+# Exclude Docker-related files
+docker-compose.override.yml
+docker-compose.override.yaml
+*.log
+
+# Exclude user-specific settings
+.env
+.env.local
+
+# Exclude logs
+log/
+logs/

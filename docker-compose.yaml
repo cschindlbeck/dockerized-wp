@@ -1,0 +1,50 @@
+version: '3'
+services:
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - "80:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: wppassword
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - ./wordpress:/var/www/html
+
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    # restart: always
+    ports:
+      - '3001:80'
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: rootpassword
+    # networks:
+    #   - wpsite
+
+  db:
+    image: mysql:5.7
+    # this weird part is needed on arch, see https://github.com/docker-library/mysql/issues/873
+    # maybe updating the mysql image might fix this issue
+    ulimits:
+      nofile:
+        soft: 1048576
+        hard: 1048576
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: wppassword
+    volumes:
+      - ./db-data:/var/lib/mysql
+
+  webserver:
+    image: httpd:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./apache-config:/etc/apache2/sites-enabled
+      - ./apache-config:/usr/local/apache2/conf/sites-enabled 
