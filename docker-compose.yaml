@@ -23,9 +23,9 @@ services:
       - ./db-data:/var/lib/mysql
 
   webserver:
-    image: httpd:latest  # Use the official Apache2 image from Docker Hub
+    image: httpd:latest
     ports:
       - "8080:80"
     volumes:
       - ./apache-config:/etc/apache2/sites-enabled
-      - ./apache-config:/usr/local/apache2/conf/sites-enabled  # Adjust the path as needed
+      - ./apache-config:/usr/local/apache2/conf/sites-enabled 
