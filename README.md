@@ -2,11 +2,9 @@
 
 Handle a WordPress site locally for Solecitos via a dockerized environment
 
-## Known bugs
+## Known bugs / TODO
 
 - Change wp-config.php in wordpress to correct credentials until wordpress dir is version-controlled
-- 
-
 
 
 ## Dockerized
