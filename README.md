@@ -1,13 +1,15 @@
-# Wordpress Site for Solecitos
+# Dockerized Wordpress Site
 
-Handle a WordPress site locally for Solecitos via a dockerized environment
+Dockerized environment in order to develop a WordPress site locally
+
+Don't forget to backup db_data and wordpress directories
 
 ## Known bugs / TODO
 
 - Change wp-config.php in wordpress to correct credentials until wordpress dir is version-controlled
 
 
-## Dockerized
+## Usage
 
 Three services for DB, apache2 and WordPress, build them via
 
