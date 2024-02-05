@@ -1,7 +1,7 @@
 version: '3'
 services:
   wordpress:
-    image: wordpress:php8.2-apache
+    image: wordpress:latest
     ports:
       - "80:80"
     environment:
@@ -14,6 +14,12 @@ services:
 
   db:
     image: mysql:5.7
+    # this weird part is needed on arch, see https://github.com/docker-library/mysql/issues/873
+    # maybe updating the mysql image might fix this issue
+    ulimits:
+      nofile:
+        soft: 1048576
+        hard: 1048576
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: wordpress
