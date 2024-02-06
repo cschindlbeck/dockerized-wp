@@ -16,6 +16,9 @@ Don't forget to backup db_data and wordpress directories
     define( 'DB_PASSWORD', getenv_docker('WORDPRESS_DB_PASSWORD', 'wppassword') );
     ```
 
+## Backups
+
+Make sure permissions and user/groups are correct when copying from a different project
 
 ## Usage
 
