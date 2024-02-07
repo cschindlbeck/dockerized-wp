@@ -2,7 +2,7 @@
 
 Dockerized environment in order to develop a WordPress site locally
 
-Don't forget to backup db_data and wordpress directories
+Don't forget to backup db_data and wordpress directories as they are gitignored
 
 ## Known bugs / TODO
 
@@ -22,13 +22,7 @@ Make sure permissions and user/groups are correct when copying from a different 
 
 ## Usage
 
-Three services for DB, apache2 and WordPress, build them via
-
-```bash
-docker compose build
-```
-
-and run them via
+Three containers for DB, apache2 and WordPress, run (will pull images initially) them via
 
 ```bash
 docker compose up --detach
