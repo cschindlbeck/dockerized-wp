@@ -1,26 +1,13 @@
 # Dockerized Wordpress Site
 
-Dockerized environment in order to develop a WordPress site locally
-
-Don't forget to backup db_data and wordpress directories
-
-## Known bugs / TODO
-
-- Change wp-config.php in wordpress to the credentials set in the docker-compose.yaml
-
-    ```
-    /** Database username */
-    define( 'DB_USER', getenv_docker('WORDPRESS_DB_USER', 'wpuser') );
-
-    /** Database password */
-    define( 'DB_PASSWORD', getenv_docker('WORDPRESS_DB_PASSWORD', 'wppassword') );
-    ```
+Develop a WordPress site locally using a containerized environment with docker-compose.
 
 ## Backups
 
+Don't forget to backup db_data and wordpress directories!
 Make sure permissions and user/groups are correct when copying from a different project
 
-## Usage
+## Install/Usage
 
 Three services for DB, apache2 and WordPress, build them via
 
@@ -42,4 +29,16 @@ In order to stop all containers do
 
 ```bash
 docker compose down
+```
+
+## Known bugs / TODO
+
+- Change wp-config.php in the wordpress directory to the credentials set in the docker-compose.yaml
+
+```
+/** Database username */
+define( 'DB_USER', getenv_docker('WORDPRESS_DB_USER', 'wpuser') );
+
+/** Database password */
+define( 'DB_PASSWORD', getenv_docker('WORDPRESS_DB_PASSWORD', 'wppassword') );
 ```
